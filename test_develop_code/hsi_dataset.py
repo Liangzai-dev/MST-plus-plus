@@ -16,7 +16,7 @@ class TrainDataset(Dataset):
         self.patch_per_colum = (h-crop_size)//stride+1
         self.patch_per_img = self.patch_per_line*self.patch_per_colum
 
-        hyper_data_path = f'{data_root}/Train_Spec/'
+        hyper_data_path = '/kaggle/input/mst-data/Train_spectral'
         bgr_data_path = f'{data_root}/Train_RGB/'
 
         with open(f'{data_root}/split_txt/train_list.txt', 'r') as fin:
@@ -84,7 +84,7 @@ class ValidDataset(Dataset):
     def __init__(self, data_root, bgr2rgb=True):
         self.hypers = []
         self.bgrs = []
-        hyper_data_path = f'{data_root}/Train_Spec/'
+        hyper_data_path = '/kaggle/input/mst-data/Train_spectral'
         bgr_data_path = f'{data_root}/Train_RGB/'
         with open(f'{data_root}/split_txt/valid_list.txt', 'r') as fin:
             hyper_list = [line.replace('\n', '.mat') for line in fin]
